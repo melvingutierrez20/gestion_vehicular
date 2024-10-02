@@ -7,7 +7,7 @@ class DatabaseConnection{
     private $server = "127.0.0.1";
     private $user = "admin";
     private $password = "12345678";
-    private $database = "gestion_vehicular";
+    private $database = "registro_vehicular";
     private $port = "27017";
 
     private function getConnectionString(){

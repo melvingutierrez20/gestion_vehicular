@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-background {
+    background-image: url('../assets/images/fondo.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 4rem; /* Incrementamos el padding */
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    width: 500px; /* Aumentamos el ancho del formulario */
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 2.5rem;
+    color: #003366; /* Color del texto como el del logo */
+    font-size: 32px; /* Texto más grande */
+}
+
+.form-control {
+    border-radius: 0.75rem;
+    padding: 1.5rem; /* Aumentamos el padding para hacer los campos más grandes */
+    font-size: 1.3rem; /* Tamaño de fuente más grande */
+}
+
+.btn-primary {
+    background-color: #003366; /* Color azul del logo */
+    border-color: #003366;
+    padding: 1.2rem; /* Botón más grande */
+    font-size: 1.3rem; /* Fuente más grande en el botón */
+    width: 100%; /* El botón ocupa todo el ancho del formulario */
+}
+
+.btn-primary:hover {
+    background-color: #002244; /* Un tono más oscuro para el hover */
+    border-color: #002244;
+}
+
+img {
+    max-width: 200px; /* Incrementamos el tamaño del logo */
+    margin-bottom: 2rem;
+}
