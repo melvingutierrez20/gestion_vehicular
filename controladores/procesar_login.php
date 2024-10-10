@@ -34,7 +34,7 @@ if ($baseDeDatos instanceof MongoDB\Database) {
             header('Location: ../vendor/almasaeed2010/adminlte');
         } elseif ($usuario['rol'] === 'usuario') {
             // Si es un usuario común, redirigir a la vista de cliente
-            header('Location: ../vistas/cliente.php'); // Ajusta esta ruta según sea necesario
+            header('Location: ../vendor/almasaeed2010/adminlte/pages/detalles_vehiculos.php'); // Ajusta esta ruta según sea necesario
         }
         exit();
     } else {
