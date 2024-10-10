@@ -8,7 +8,7 @@ $baseDeDatos = $dbConnection->Connect(); // Conectar a la base de datos
 
 // Verificar si la conexión es válida
 if ($baseDeDatos instanceof MongoDB\Database) {
-    // Seleccionar la colección 'usuarioss'
+    // Seleccionar la colección 'usuarios'
     $coleccion = $baseDeDatos->usuarios;
 
     // Obtener los datos del formulario
@@ -26,9 +26,16 @@ if ($baseDeDatos instanceof MongoDB\Database) {
     if ($usuario && $usuario['password'] === $password) {
         // Si las credenciales son correctas, crear la sesión
         $_SESSION['username'] = $usuario['nombre_usuario'];
-        
-        // Redirigir al dashboard
-        header('Location: ../vendor/almasaeed2010/adminlte');
+        $_SESSION['rol'] = $usuario['rol']; // Guardar el rol en la sesión
+
+        // Redirigir según el rol del usuario
+        if ($usuario['rol'] === 'admin') {
+            // Si es administrador, redirigir al dashboard de AdminLTE
+            header('Location: ../vendor/almasaeed2010/adminlte');
+        } elseif ($usuario['rol'] === 'usuario') {
+            // Si es un usuario común, redirigir a la vista de cliente
+            header('Location: ../vistas/cliente.php'); // Ajusta esta ruta según sea necesario
+        }
         exit();
     } else {
         // Si las credenciales son incorrectas, guardar un mensaje de error en la sesión
@@ -43,3 +50,4 @@ if ($baseDeDatos instanceof MongoDB\Database) {
     header('Location: ../vistas/login.php'); // Ajusta esta ruta si es necesario
     exit();
 }
+?>
