@@ -164,7 +164,7 @@
                 <!-- Botones de acción -->
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Agregar</button>
-                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/vehiculo.php" class="btn btn-secondary">Regresar</a>
+                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/vehiculos.php" class="btn btn-secondary">Regresar</a>
                 </div>
             </form>
         </div>

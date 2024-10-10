@@ -24,12 +24,13 @@ if (!$usuario) {
     <title>Editar Usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="../css/editor_ds.css">
 </head>
 
 <body>
 <div class="container mt-5">
     <div class="card">
-        <div class="card-header text-center bg-primary text-white">
+        <div class="card-header text-center text-white">
             <h2>Editar Usuario</h2>
         </div>
         <div class="card-body">
@@ -68,7 +69,7 @@ if (!$usuario) {
                 <!-- Botones de acción -->
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                    <a href="usuarios.php" class="btn btn-secondary">Regresar</a>
+                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/usuarios.php" class="btn btn-secondary">Regresar</a>
                 </div>
             </form>
         </div>

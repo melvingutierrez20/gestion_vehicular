@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | ChartJS</title>
+  <title>AdminLTE 3 | Chartll</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <link href="https://cdn.datatables.net/v/dt/dt-2.1.7/datatables.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
     <!-- Brand Logo -->
     <a href="http://localhost/gestion_vehicular/vendor/almasaeed2010/adminlte/" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Destión Vehicular</span>
+      <span class="brand-text font-weight-light">Gestión Vehicular</span>
     </a>
 
     <!-- Sidebar -->
@@ -47,7 +47,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Aadmin</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -142,13 +142,13 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
-                <a href="../../../../../vistas/agregar_personas.php" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Agregar Nuevo Registro
+                <a href="../../../../../vistas/agregar_personas.php" class="btn custom-btn">
+                    <i class="fas fa-plus"></i> Agregar Nueva persona
                 </a>
             </div>
 
-            <div class="table-container">
-                <table id="personaTable" class="table table-sm table-hover table-bordered">
+            <div class="table-responsive table-container">
+                <table id="personaTable" class="table table-sm table-hover table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -205,13 +205,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

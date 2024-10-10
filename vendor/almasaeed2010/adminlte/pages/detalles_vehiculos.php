@@ -6,66 +6,8 @@
     <title>Buscar Vehículo por Placa</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <style>
-        body {
-            background-color: #f4f6f9;
-        }
-        .container {
-            max-width: 800px;
-            margin-top: 50px;
-        }
-        .card {
-            border: 1px solid #007bff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 10px 10px 0 0;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .list-group-item {
-            background-color: #f8f9fa;
-            border-color: #dee2e6;
-        }
-        h5 {
-            font-weight: bold;
-            color: #007bff;
-        }
-        #nuevaEsquelaBtn {
-            background-color: #28a745;
-            border: none;
-            padding: 10px 20px;
-            color: #fff;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        #nuevaEsquelaBtn:hover {
-            background-color: #218838;
-        }
-        .esquela-header {
-            color: #007bff;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        /* Estilo para el botón de cerrar sesión */
-        #logoutBtn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            background-color: #dc3545;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #logoutBtn:hover {
-            background-color: #c82333;
-        }
-    </style>
+    <link rel="stylesheet" href="../../../../css/detalles_vehiculos.css">
+    
 </head>
 <body>
 
@@ -236,7 +178,7 @@ $(document).ready(function() {
 // Función para cerrar sesión
 function cerrarSesion() {
     // Redirigir a una página de logout o cerrar sesión en el backend
-    window.location.href = 'http://localhost/gestion_vehicular/vistas/login.php'; // Cambia esta URL según tu lógica de cierre de sesión
+    window.location.href = 'http://localhost/gestion_vehicular/vistas/login.php'; 
 }
 </script>
 

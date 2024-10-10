@@ -11,7 +11,7 @@
 
         /* Estilo para las celdas del encabezado */
         thead th {
-            background-color: #3503d7; /* Azul */
+            background-color: #007bff; /* Azul */
             color: white;
             text-align: left;
             padding: 12px 15px;
@@ -19,4 +19,25 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             white-space: nowrap; /* Evita que el texto se desborde */
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f9f9f9; /* Color más claro */
+        }
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #e9ecef; /* Color más oscuro */
+        }
+
+        /*estilo del boton de agregar*/
+
+        .custom-btn {
+            background-color: #343a40; 
+            color: white; 
+            font-size: 17px; 
+            padding: 10px 20px;
+            border-radius: 8px; 
+        }
+        .custom-btn:hover {
+            background-color: #222629; 
+            color: white;
         }

@@ -103,7 +103,6 @@ td {
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
@@ -112,7 +111,7 @@ td {
             <i class="fas fa-database"></i>
               <p>
                 Registros
-
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -182,14 +181,14 @@ td {
     <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-end mb-3">
-            <a href="../../../../../vistas/agregar_vehiculo.php" class="btn btn-primary">
+            <a href="../../../../../vistas/agregar_vehiculo.php" class="btn custom-btn">
                 <i class="fas fa-plus"></i> Agregar Nuevo Vehículo
             </a>
         </div>
 
         <div class="table-responsive table-container">
-        <table id="esquelasTable" class="table table-sm table-hover table-bordered text-center w-100">
-    <thead class="thead-dark">
+        <table id="esquelasTable" class="table table-sm table-hover table-bordered text-center w-100 table-striped">
+    <thead class="thead">
         <tr>
             <th>Placa del Vehículo</th>
             <th>Descripción</th>
@@ -270,13 +269,6 @@ td {
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

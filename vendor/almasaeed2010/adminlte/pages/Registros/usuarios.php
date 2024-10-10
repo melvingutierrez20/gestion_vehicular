@@ -183,14 +183,14 @@ td {
     <div class="card">
         <div class="card-body">
             <div class="d-flex justify-content-end mb-3">
-                <a href="../../../../../vistas/agregar_usuarios.php" class="btn btn-primary">
+                <a href="../../../../../vistas/agregar_usuarios.php" class="btn custom-btn">
                     <i class="fas fa-plus"></i> Agregar Nuevo Usuario
                 </a>
             </div>
 
             <div class="table-responsive table-container">
                 <table id="usuarioTable" class="table table-sm table-hover table-bordered text-center w-100">
-                    <thead class="thead-dark">
+                    <thead class="thead">
                         <tr>
                             <th>Nombre de Usuario</th>
                             <th>Correo</th>
