@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Vehículo</title>
+    <title>Agregar Motos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
@@ -70,6 +70,26 @@
             font-size: 1.5rem;
             margin-bottom: 0;
         }
+
+        /* Estilo para la lista de sugerencias de propietarios */
+        .suggestions {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -77,124 +97,74 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header text-center">
-            <h2>Editar Vehículo</h2>
+            <h2>Agregar Nuevo Vehículo</h2>
         </div>
         <div class="card-body">
 
-            <?php
-            require_once '../conexion_db/conexion.php';
-
-            // Obtener el ID del vehículo desde la URL
-            if (isset($_GET['id'])) {
-                $vehiculoId = $_GET['id'];
-
-                // Conexión a la base de datos
-                $dbConn = new DatabaseConnection();
-                $db = $dbConn->Connect();
-                $vehiculosCollection = $db->vehiculos;
-
-                // Buscar el vehículo por su ID
-                $vehiculo = $vehiculosCollection->findOne(['_id' => new MongoDB\BSON\ObjectId($vehiculoId)]);
-
-                if ($vehiculo) {
-                    // Obtener los valores del vehículo
-                    $placa = $vehiculo['placa'];
-                    $marca = $vehiculo['marca'];
-                    $modelo = $vehiculo['modelo'];
-                    $anio = $vehiculo['anio'];
-                    $tipo = $vehiculo['tipo'];
-                    $clase = $vehiculo['clase'];
-                    $numero_chasis = $vehiculo['numero_chasis'];
-                    $numero_motor = $vehiculo['numero_motor'];
-
-                    // Obtener el propietario
-                    $personaCollection = $db->persona;
-                    $propietario = $personaCollection->findOne(['_id' => $vehiculo['propietario_id']]);
-
-                    if ($propietario) {
-                        $propietarioNombre = $propietario['nombre'] . ' ' . $propietario['apellido'];
-                        $propietarioId = (string)$propietario['_id'];
-                    } else {
-                        $propietarioNombre = 'Propietario no encontrado';
-                        $propietarioId = '';
-                    }
-                } else {
-                    echo "<p>No se encontró el vehículo.</p>";
-                    exit;
-                }
-            } else {
-                echo "<p>ID del vehículo no proporcionado.</p>";
-                exit;
-            }
-            ?>
-
-            <!-- Formulario para editar vehículo -->
-            <form id="editForm" method="POST" action="../controladores/edit_process_vehiculo.php">
-                <input type="hidden" id="id" name="id" value="<?php echo $vehiculoId; ?>">
-
+            <!-- Formulario para agregar vehículo -->
+            <form id="addForm" method="POST">
                 <!-- Campo Placa -->
                 <div class="mb-3">
                     <label for="placa" class="form-label">Placa</label>
-                    <input type="text" class="form-control" id="placa" name="placa" value="<?php echo $placa; ?>" required>
+                    <input type="text" class="form-control" id="placa" name="placa" required>
                 </div>
 
                 <!-- Campo Marca -->
                 <div class="mb-3">
                     <label for="marca" class="form-label">Marca</label>
-                    <input type="text" class="form-control" id="marca" name="marca" value="<?php echo $marca; ?>" required>
+                    <input type="text" class="form-control" id="marca" name="marca" required>
                 </div>
 
                 <!-- Campo Modelo -->
                 <div class="mb-3">
                     <label for="modelo" class="form-label">Modelo</label>
-                    <input type="text" class="form-control" id="modelo" name="modelo" value="<?php echo $modelo; ?>" required>
+                    <input type="text" class="form-control" id="modelo" name="modelo" required>
                 </div>
 
                 <!-- Campo Año -->
                 <div class="mb-3">
                     <label for="anio" class="form-label">Año</label>
-                    <input type="number" class="form-control" id="anio" name="anio" value="<?php echo $anio; ?>" min="1900" max="2100" required>
+                    <input type="number" class="form-control" id="anio" name="anio" min="1900" max="2100" required>
                 </div>
 
                 <!-- Campo Tipo -->
                 <div class="mb-3">
                     <label for="tipo" class="form-label">Tipo</label>
-                    <input type="text" class="form-control" id="tipo" name="tipo" value="<?php echo $tipo; ?>" required>
+                    <input type="text" class="form-control" id="tipo" name="tipo" required>
                 </div>
 
                 <!-- Campo Clase -->
                 <div class="mb-3">
                     <label for="clase" class="form-label">Clase</label>
-                    <input type="text" class="form-control" id="clase" name="clase" value="<?php echo $clase; ?>" required>
+                    <input type="text" class="form-control" id="clase" name="clase" required>
                 </div>
 
                 <!-- Campo Número de Chasis -->
                 <div class="mb-3">
                     <label for="numero_chasis" class="form-label">Número de Chasis</label>
-                    <input type="text" class="form-control" id="numero_chasis" name="numero_chasis" value="<?php echo $numero_chasis; ?>" required>
+                    <input type="text" class="form-control" id="numero_chasis" name="numero_chasis" required>
                 </div>
 
                 <!-- Campo Número de Motor -->
                 <div class="mb-3">
                     <label for="numero_motor" class="form-label">Número de Motor</label>
-                    <input type="text" class="form-control" id="numero_motor" name="numero_motor" value="<?php echo $numero_motor; ?>" required>
+                    <input type="text" class="form-control" id="numero_motor" name="numero_motor" required>
                 </div>
 
-                <!-- Campo Propietario con sugerencias -->
+                <!-- Campo Propietario con sugerencias en tiempo real -->
                 <div class="mb-3 position-relative">
                     <label for="propietario" class="form-label">Propietario</label>
-                    <input type="text" class="form-control" id="propietario" name="propietario" value="<?php echo $propietarioNombre; ?>" required>
+                    <input type="text" class="form-control" id="propietario" name="propietario" autocomplete="off" required>
                     <div id="suggestions" class="suggestions"></div>
                 </div>
 
-<!-- Campo oculto para almacenar el _id del propietario -->
-<input type="hidden" id="propietario_id" name="propietario_id" value="<?php echo $vehiculo['propietario_id']; ?>">
-
+                <!-- Campo oculto para almacenar el _id del propietario -->
+                <input type="hidden" id="propietario_id" name="propietario_id">
 
                 <!-- Botones de acción -->
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/vehiculo.php" class="btn btn-secondary">Regresar</a>
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/motos.php" class="btn btn-secondary">Regresar</a>
                 </div>
             </form>
         </div>
@@ -204,7 +174,7 @@
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../js/vehiculo/editar_vehiculo.js"></script>
+<script src="../js/motos/agregar_motos.js"></script>
 <script>
 $(document).ready(function () {
     // Capturar el evento input en el campo de propietario
@@ -232,23 +202,16 @@ $(document).ready(function () {
         var propietarioNombre = $(this).text();
         var propietarioId = $(this).data('id'); // Obtener el _id del propietario desde el atributo data-id
 
-        // Verificar si estamos capturando correctamente el propietario_id
-        console.log("Propietario seleccionado:", propietarioNombre);
-        console.log("ID del propietario seleccionado:", propietarioId);
-
         // Rellenar el campo de texto con el nombre del propietario
         $('#propietario').val(propietarioNombre);
 
-        // Actualizar el campo oculto con el nuevo ID del propietario
+        // Almacenar el _id del propietario en un campo oculto
         $('#propietario_id').val(propietarioId);
 
         // Limpiar las sugerencias
         $('#suggestions').empty();
     });
 });
-
-
-
 </script>
 
 </body>

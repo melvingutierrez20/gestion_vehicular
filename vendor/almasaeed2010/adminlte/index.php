@@ -103,7 +103,7 @@ if (!isset($_SESSION['username'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="pages/Registros/motos.php" class="nav-link">
                   <i class="fas fa-motorcycle"></i>
                   <p>Motos</p>
                 </a>

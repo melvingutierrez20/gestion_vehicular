@@ -86,30 +86,30 @@
 
             // Obtener el ID del vehículo desde la URL
             if (isset($_GET['id'])) {
-                $vehiculoId = $_GET['id'];
+                $motosId = $_GET['id'];
 
                 // Conexión a la base de datos
                 $dbConn = new DatabaseConnection();
                 $db = $dbConn->Connect();
-                $vehiculosCollection = $db->vehiculos;
+                $motosCollection = $db->motos;
 
                 // Buscar el vehículo por su ID
-                $vehiculo = $vehiculosCollection->findOne(['_id' => new MongoDB\BSON\ObjectId($vehiculoId)]);
+                $motos = $motosCollection->findOne(['_id' => new MongoDB\BSON\ObjectId($motosId)]);
 
-                if ($vehiculo) {
+                if ($motos) {
                     // Obtener los valores del vehículo
-                    $placa = $vehiculo['placa'];
-                    $marca = $vehiculo['marca'];
-                    $modelo = $vehiculo['modelo'];
-                    $anio = $vehiculo['anio'];
-                    $tipo = $vehiculo['tipo'];
-                    $clase = $vehiculo['clase'];
-                    $numero_chasis = $vehiculo['numero_chasis'];
-                    $numero_motor = $vehiculo['numero_motor'];
+                    $placa = $motos['placa'];
+                    $marca = $motos['marca'];
+                    $modelo = $motos['modelo'];
+                    $anio = $motos['anio'];
+                    $tipo = $motos['tipo'];
+                    $clase = $motos['clase'];
+                    $numero_chasis = $motos['numero_chasis'];
+                    $numero_motor = $motos['numero_motor'];
 
                     // Obtener el propietario
                     $personaCollection = $db->persona;
-                    $propietario = $personaCollection->findOne(['_id' => $vehiculo['propietario_id']]);
+                    $propietario = $personaCollection->findOne(['_id' => $motos['propietario_id']]);
 
                     if ($propietario) {
                         $propietarioNombre = $propietario['nombre'] . ' ' . $propietario['apellido'];
@@ -129,8 +129,8 @@
             ?>
 
             <!-- Formulario para editar vehículo -->
-            <form id="editForm" method="POST" action="../controladores/edit_process_vehiculo.php">
-                <input type="hidden" id="id" name="id" value="<?php echo $vehiculoId; ?>">
+            <form id="editForm" method="POST" action="../controladores/edit_process_motos.php">
+                <input type="hidden" id="id" name="id" value="<?php echo $motosId; ?>">
 
                 <!-- Campo Placa -->
                 <div class="mb-3">
@@ -188,13 +188,13 @@
                 </div>
 
 <!-- Campo oculto para almacenar el _id del propietario -->
-<input type="hidden" id="propietario_id" name="propietario_id" value="<?php echo $vehiculo['propietario_id']; ?>">
+<input type="hidden" id="propietario_id" name="propietario_id" value="<?php echo $motos['propietario_id']; ?>">
 
 
                 <!-- Botones de acción -->
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/vehiculo.php" class="btn btn-secondary">Regresar</a>
+                    <a href="../vendor/almasaeed2010/adminlte/pages/Registros/motos.php" class="btn btn-secondary">Regresar</a>
                 </div>
             </form>
         </div>
@@ -204,7 +204,7 @@
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="../js/vehiculo/editar_vehiculo.js"></script>
+<script src="../js/motos/editar_motos.js"></script>
 <script>
 $(document).ready(function () {
     // Capturar el evento input en el campo de propietario
