@@ -1,0 +1,22 @@
+
+        /* Estilos generales para la tabla */
+        table {
+            width: 100%;
+            margin: 25px 0;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            overflow-x: auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilo para las celdas del encabezado */
+        thead th {
+            background-color: #3503d7; /* Azul */
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap; /* Evita que el texto se desborde */
+        }

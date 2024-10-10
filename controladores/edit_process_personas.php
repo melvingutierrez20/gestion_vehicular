@@ -31,6 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    if (empty($direccion)) {
+        echo json_encode(['status' => 'error', 'message' => 'La dirección es obligatoria.']);
+        exit;
+    }
+
+
     if (empty($departamento)) {
         echo json_encode(['status' => 'error', 'message' => 'Debe seleccionar un departamento.']);
         exit;

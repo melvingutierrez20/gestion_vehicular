@@ -7,6 +7,93 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background-attachment: fixed;
+    display: flex;
+    font-family: "Roboto Condensed", sans-serif;
+}
+        /* Contenedor del formulario */
+        .container {
+            max-width: 600px;
+        }
+
+        /* Estilo de la tarjeta */
+        .card {
+            border: 1px solid #007bff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Cabecera de la tarjeta */
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Campos del formulario */
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Al enfocar los campos de texto */
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Botón de agregar */
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        /* Botón de regresar */
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        /* Espaciado entre los botones */
+        .d-flex button,
+        .d-flex a {
+            margin: 10px 0;
+        }
+
+        /* Título del formulario */
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+    </style>
 <body>
 
 <div class="container mt-5">
