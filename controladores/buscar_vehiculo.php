@@ -29,6 +29,8 @@ if (isset($_GET['placa'])) {
 
         if (count($vehiculo) > 0) {
             // Si el vehículo existe, retorna el vehículo y las esquelas
+
+            //aqui se agerga quipoidgdfgdfg
             echo json_encode(['status' => 'success', 'data' => $vehiculo[0]]);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'No se encontró el vehículo con esa placa.']);
@@ -40,3 +42,5 @@ if (isset($_GET['placa'])) {
     echo json_encode(['status' => 'error', 'message' => 'Falta el parámetro de placa.']);
 }
 ?>
+
+
